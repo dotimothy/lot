@@ -191,9 +191,6 @@ int menu()
 				break;
 			case 5:
 				printf("Simulation:\n");
-				printf("Enter Your Ticket Number: ");
-				scanf("%d %d %d %d %d %d",&numbers[0],&numbers[1],&numbers[2],&numbers[3],&numbers[4],&numbers[5]);
-				while(getchar() != '\n');
 				int secondChoice, trials;
 				int test[6];
 				do 
@@ -203,34 +200,55 @@ int menu()
 					switch(secondChoice)
 					{
 						case 1:
+							printf("Enter Your Ticket Number: ");
+							scanf("%d %d %d %d %d %d",&numbers[0],&numbers[1],&numbers[2],&numbers[3],&numbers[4],&numbers[5]);
+							while(getchar() != '\n');
 							printf("Desired Ticket: %d %d %d %d %d %s%d%s\n",numbers[0],numbers[1],numbers[2],numbers[3],numbers[4],blue,numbers[5],white);
 							do
 							{
 								chooseMegaMillion(test);
 								trials++;
+								#ifdef more
+									printf("%d. %d %d %d %d %d %s%d%s\n",trials,test[0],test[1],test[2],test[3],test[4],blue,test[5],white);
+								#endif
 							} while(!(check(test,numbers)));
 							printf("Matched Ticket: %d %d %d %d %d %s%d%s\n",test[0],test[1],test[2],test[3],test[4],blue,test[5],white);
-							printf("It took %d drawings.\n", trials);
+							printf("It took %d Drawings.\n", trials);
+							secondChoice = 0;
 							break;
 						case 2:
+							printf("Enter Your Ticket Number: ");
+							scanf("%d %d %d %d %d %d",&numbers[0],&numbers[1],&numbers[2],&numbers[3],&numbers[4],&numbers[5]);
+							while(getchar() != '\n');
 							printf("Desired Ticket: %d %d %d %d %d %s%d%s\n",numbers[0],numbers[1],numbers[2],numbers[3],numbers[4],red,numbers[5],white);
 							do
 							{
 								choosePowerBall(test);
 								trials++;
+								#ifdef more
+									printf("%d. %d %d %d %d %d %s%d%s\n",trials,test[0],test[1],test[2],test[3],test[4],red,test[5],white);
+								#endif
 							} while(!(check(test,numbers)));
 							printf("Matched Ticket: %d %d %d %d %d %s%d%s\n",test[0],test[1],test[2],test[3],test[4],red,test[5],white);
-							printf("It took %d drawings.\n", trials);
+							printf("It took %d Drawings.\n", trials);
+							secondChoice = 0;
 							break;
 						case 3:
+							printf("Enter Your Ticket Number: ");
+							scanf("%d %d %d %d %d %d",&numbers[0],&numbers[1],&numbers[2],&numbers[3],&numbers[4],&numbers[5]);
+							while(getchar() != '\n');
 							printf("Desired Ticket: %d %d %d %d %d %s%d%s\n",numbers[0],numbers[1],numbers[2],numbers[3],numbers[4],yellow,numbers[5],white);
 							do
 							{
 								chooseSuperLotto(test);
 								trials++;
+								#ifdef more
+									printf("%d. %d %d %d %d %d %s%d%s\n",trials,test[0],test[1],test[2],test[3],test[4],yellow,test[5],white);
+								#endif
 							} while(!(check(test,numbers)));
 							printf("Matched Ticket: %d %d %d %d %d %s%d%s\n",test[0],test[1],test[2],test[3],test[4],yellow,test[5],white);
-							printf("It took %d drawings.\n", trials);
+							printf("It took %d Drawings.\n", trials);
+							secondChoice = 0;
 							break;
 						default:
 							printf("\nInvalid Choice. Try Again.\n");
